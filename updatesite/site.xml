@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.synyx.hades.eclipse.feature_0.7.0.qualifier.jar" id="org.synyx.hades.eclipse.feature" version="0.7.0.qualifier">
+      <category name="hades"/>
+   </feature>
+   <category-def name="hades" label="Hades"/>
+</site>
