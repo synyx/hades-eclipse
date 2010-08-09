@@ -12,6 +12,9 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
     
+    <name>Hades Eclipse Plugin</name>
+    <description>Hades Eclipse Plugin project</description>
+    
     <build>
         <plugins>
             <plugin>

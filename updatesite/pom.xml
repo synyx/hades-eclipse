@@ -5,6 +5,9 @@
 
 	<artifactId>org.synyx.hades.eclipse.updatesite</artifactId>
 	<packaging>eclipse-update-site</packaging>
+    
+    <name>Hades Eclipse Updatesite</name>
+    <description>Hades Eclipse updatesite projects</description>
 
 	<parent>
 		<artifactId>org.synyx.hades.eclipse.parent</artifactId>
@@ -12,6 +15,7 @@
 		<version>0.7.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
+    
 
 	<dependencies>
 		<dependency>

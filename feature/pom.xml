@@ -5,6 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>org.synyx.hades.eclipse.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
+    
+    <name>Hades Eclipse Feature</name>
+    <description>Feature project for Hades Eclipse plugin</description>
+    
 	<parent>
 		<artifactId>org.synyx.hades.eclipse.parent</artifactId>
 		<groupId>org.synyx.hades.eclipse</groupId>
@@ -12,7 +16,4 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
     
-    <dependencies>
-       
-    </dependencies>
 </project>
