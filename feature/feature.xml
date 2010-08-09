@@ -84,4 +84,47 @@
          version="2.0.0.BUILD-SNAPSHOT"
          unpack="false"/>
 
+   <plugin
+         id="org.springframework.orm"
+         download-size="0"
+         install-size="0"
+         version="3.0.3.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.transaction"
+         download-size="0"
+         install-size="0"
+         version="3.0.3.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.beans"
+         download-size="0"
+         install-size="0"
+         version="3.0.3.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="org.springframework.context"
+         download-size="0"
+         install-size="0"
+         version="3.0.3.RELEASE"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.slf4j.api"
+         download-size="0"
+         install-size="0"
+         version="1.6.1"
+         unpack="false"/>
+
+   <plugin
+         id="com.springsource.slf4j.nop"
+         download-size="0"
+         install-size="0"
+         version="1.6.1"
+         fragment="true"
+         unpack="false"/>
+
 </feature>

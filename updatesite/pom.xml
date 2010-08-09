@@ -19,6 +19,23 @@
 			<artifactId>org.synyx.hades.eclipse.feature</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+        
+        <!-- Additional non PDE bundles to be delivered with the feature 
+             
+             Necessary as we want to stay compatible with older versions 
+             of STS that do not ship with the Spring version Hades requires -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
 	</dependencies>
 
 </project>

@@ -11,6 +11,7 @@
 	<properties>
 		<tycho.version>0.9.0</tycho.version>
 		<spring.version>3.0.3.RELEASE</spring.version>
+        <slf4j.version>1.6.1</slf4j.version>
 	</properties>
     
     <prerequisites>
@@ -64,6 +65,7 @@
 			</plugin>
 		</plugins>
 	</build>
+    
 	<modules>
 		<module>plugin</module>
 		<module>feature</module>
@@ -86,6 +88,17 @@
 			<artifactId>org.springframework.aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+        
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>com.springsource.slf4j.api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>com.springsource.slf4j.nop</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
 	</dependencies>
 
 	<repositories>
@@ -104,5 +117,23 @@
 			<url>http://dist.springsource.com/release/TOOLS/composite/e3.5</url>
 			<layout>p2</layout>
 		</repository>
+        
+        <repository>
+            <id>com.springsource.repository.bundles.release</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Release Bundles</name>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        
+        <repository>
+            <id>com.springsource.repository.bundles.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Bundles</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
 	</repositories>
 </project>
