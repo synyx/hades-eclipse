@@ -45,14 +45,12 @@
 		<tycho.version>0.9.0</tycho.version>
 		<spring.version>3.0.3.RELEASE</spring.version>
         <slf4j.version>1.6.1</slf4j.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-    
-	
-	
+    	
 	<prerequisites>
         <maven>3.0</maven>
     </prerequisites>
-
 	
 	<build>
 		<plugins>
