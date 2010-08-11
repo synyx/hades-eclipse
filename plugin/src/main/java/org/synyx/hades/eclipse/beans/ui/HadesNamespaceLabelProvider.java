@@ -3,8 +3,10 @@ package org.synyx.hades.eclipse.beans.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.swt.graphics.Image;
 import org.springframework.ide.eclipse.beans.core.model.IBean;
 import org.springframework.ide.eclipse.beans.core.model.IBeansTypedString;
+import org.springframework.ide.eclipse.beans.ui.BeansUIImages;
 import org.springframework.ide.eclipse.beans.ui.namespaces.DefaultNamespaceLabelProvider;
 import org.springframework.ide.eclipse.core.model.IModelElement;
 import org.springframework.ide.eclipse.core.model.ISourceModelElement;
@@ -63,5 +65,25 @@ public class HadesNamespaceLabelProvider extends DefaultNamespaceLabelProvider {
         }
 
         return super.getText(element, context, isDecorating);
+    }
+
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.ide.eclipse.beans.ui.namespaces.
+     * DefaultNamespaceLabelProvider
+     * #getImage(org.springframework.ide.eclipse.core.model.ISourceModelElement,
+     * org.springframework.ide.eclipse.core.model.IModelElement, boolean)
+     */
+    @Override
+    public Image getImage(ISourceModelElement element, IModelElement context,
+            boolean isDecorating) {
+
+        if (element instanceof IBean) {
+            return BeansUIImages.getImage(BeansUIImages.IMG_OBJS_BEAN);
+        } else {
+            return super.getImage(element, context, isDecorating);
+        }
     }
 }
