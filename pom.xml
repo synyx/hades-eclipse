@@ -136,22 +136,7 @@
 	</dependencies>
 
 	<repositories>
-		<repository>
-			<id>helios</id>
-			<url>http://download.eclipse.org/releases/galileo</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>sts</id>
-			<url>http://dist.springsource.com/release/TOOLS/update/e3.5</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>sts-dependencies</id>
-			<url>http://dist.springsource.com/release/TOOLS/composite/e3.5</url>
-			<layout>p2</layout>
-		</repository>
-        
+		       
         <repository>
             <id>com.springsource.repository.bundles.release</id>
             <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Release Bundles</name>
@@ -170,4 +155,50 @@
             </snapshots>
         </repository>
 	</repositories>
+    
+    <profiles>
+        <profile>
+            <id>galileo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>galileo</id>
+                    <url>http://download.eclipse.org/releases/galileo</url>
+                    <layout>p2</layout>
+                </repository>
+                <repository>
+                    <id>sts</id>
+                    <url>http://dist.springsource.com/release/TOOLS/update/e3.5</url>
+                    <layout>p2</layout>
+                </repository>
+                <repository>
+                    <id>sts-dependencies</id>
+                    <url>http://dist.springsource.com/release/TOOLS/composite/e3.5</url>
+                    <layout>p2</layout>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>helios</id>
+            <repositories>
+                <repository>
+                    <id>helios</id>
+                    <url>http://download.eclipse.org/releases/helios</url>
+                    <layout>p2</layout>
+                </repository>
+                <repository>
+                    <id>sts</id>
+                    <url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.6</url>
+                    <layout>p2</layout>
+                </repository>
+                <repository>
+                    <id>sts-dependencies</id>
+                    <url>http://dist.springsource.com/snapshot/TOOLS/composite/e3.6</url>
+                    <layout>p2</layout>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 </project>
