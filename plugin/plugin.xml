@@ -55,5 +55,29 @@
          </enablement>
       </decorator>
    </extension>
+ <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer viewerId="org.eclipse.ui.navigator.ProjectExplorer"/>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.synyx.hades.eclipse.beans.ui.model.projectExplorerContent"/>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+
+<extension point="org.eclipse.ui.navigator.navigatorContent">
+
+		<navigatorContent
+	            id="org.synyx.hades.eclipse.beans.ui.model.projectExplorerContent"
+	            name="Hades DAO reference"
+	            contentProvider="org.synyx.hades.eclipse.beans.ui.model.HadesModelContentProvider"
+	            labelProvider="org.springframework.ide.eclipse.beans.ui.navigator.BeansNavigatorLabelProvider"
+	            activeByDefault="true"
+	            priority="highest">
+	            <enablement>
+	            	<instanceof value="org.eclipse.jdt.core.IType"/>
+	            </enablement> 
+	   	</navigatorContent>
+   </extension>
 
 </plugin>
