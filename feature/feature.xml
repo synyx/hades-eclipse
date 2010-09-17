@@ -92,6 +92,13 @@
          unpack="false"/>
 
    <plugin
+	 id="org.springframework.jdbc"
+	 download-size="0"
+	 install-size="0"
+	 version="3.0.4.RELEASE"
+	 unpack="false"/>
+
+   <plugin
          id="org.springframework.transaction"
          download-size="0"
          install-size="0"
@@ -111,6 +118,27 @@
          install-size="0"
          version="3.0.4.RELEASE"
          unpack="false"/>
+
+   <plugin
+	id="org.springframework.core"
+	download-size="0"
+	install-size="0"
+	version="3.0.4.RELEASE"
+	unpack="false"/>
+
+   <plugin 
+	id="org.springframework.aop"
+	download-size="0"
+	install-size="0"
+	version="3.0.4.RELEASE"
+	unpack="false"/>
+
+   <plugin
+	id="org.springframework.asm"
+	download-size="0"
+	install-size="0"
+	version="3.0.4.RELEASE"
+	unpack="false"/>
 
    <plugin
          id="com.springsource.slf4j.api"
