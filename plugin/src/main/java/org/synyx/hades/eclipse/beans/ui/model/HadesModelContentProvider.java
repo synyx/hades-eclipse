@@ -22,15 +22,17 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.jdt.core.IType;
 import org.springframework.ide.eclipse.beans.core.internal.model.BeanClassReferences;
 import org.springframework.ide.eclipse.beans.core.model.IBean;
-import org.springframework.ide.eclipse.beans.ui.model.BeansModelContentProvider;
+import org.springframework.ide.eclipse.beans.ui.navigator.BeansNavigatorContentProvider;
 import org.springframework.ide.eclipse.core.model.IModelElement;
 import org.synyx.hades.eclipse.HadesUtils;
 
 
 /**
+ * Content provider to add "referenced by" elements to Hades DAO interfaces.
+ * 
  * @author Oliver Gierke - gierke@synyx.de
  */
-public class HadesModelContentProvider extends BeansModelContentProvider {
+public class HadesModelContentProvider extends BeansNavigatorContentProvider {
 
     /*
      * (non-Javadoc)
