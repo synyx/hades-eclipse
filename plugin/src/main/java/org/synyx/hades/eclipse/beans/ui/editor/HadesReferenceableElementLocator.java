@@ -59,8 +59,7 @@ public class HadesReferenceableElementLocator extends
             }
         }
 
-        for (String name : HadesUtils.getDaoBeanIds()) {
-
+        for (String name : HadesUtils.getDaoBeanIds(file.getProject())) {
             result.put(name, hadesElement);
         }
 

@@ -19,9 +19,11 @@ package org.synyx.hades.eclipse;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.IType;
 import org.springframework.ide.eclipse.beans.core.BeansCorePlugin;
 import org.springframework.ide.eclipse.beans.core.model.IBean;
-import org.springframework.ide.eclipse.beans.core.model.IBeansConfig;
+import org.springframework.ide.eclipse.beans.core.model.IBeansProject;
 import org.springframework.ide.eclipse.beans.core.model.IBeansTypedString;
 import org.springframework.ide.eclipse.beans.ui.editor.namespaces.NamespaceUtils;
 import org.synyx.hades.dao.orm.GenericDaoFactoryBean;
@@ -70,34 +72,13 @@ public abstract class HadesUtils {
      * 
      * @return
      */
-    public static Set<String> getDaoBeanIds() {
+    public static Set<String> getDaoBeanIds(IProject project) {
 
         Set<String> result = new HashSet<String>();
 
-        for (IBean bean : getDaoBeans()) {
+        for (IBean bean : getDaoBeansFor(project)) {
 
             result.add(bean.getElementName());
-        }
-
-        return result;
-    }
-
-
-    /**
-     * Returns all DAO interface names from the beans model.
-     * 
-     * @return
-     */
-    public static Set<String> getDaoInterfaceNames() {
-
-        Set<String> result = new HashSet<String>();
-
-        for (IBeansConfig config : getDaoBeansConfigs()) {
-
-            for (IBean bean : config.getBeans(getFactoryName())) {
-
-                result.add(getDaoInterfaceName(bean));
-            }
         }
 
         return result;
@@ -128,6 +109,19 @@ public abstract class HadesUtils {
     }
 
 
+    public static boolean hasDaoBean(Set<IBean> beans, String daoInterface) {
+
+        for (IBean bean : beans) {
+
+            if (hasDaoInterface(bean, daoInterface)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
     /**
      * Returns whether the given {@link Node} is from Hades namespace.
      * 
@@ -146,23 +140,12 @@ public abstract class HadesUtils {
 
 
     /**
-     * Returns all {@link IBeansConfig}s that contain a DAO factory bean.
-     * 
-     * @return
-     */
-    private static Set<IBeansConfig> getDaoBeansConfigs() {
-
-        return BeansCorePlugin.getModel().getConfigs(getFactoryName());
-    }
-
-
-    /**
      * Returns, whether the given bean is a Hades factory bean.
      * 
      * @param bean
      * @return
      */
-    private static boolean isFactoryBean(IBean bean) {
+    public static boolean isHadesDaoBean(IBean bean) {
 
         return getFactoryName().equals(bean.getClassName());
     }
@@ -182,7 +165,7 @@ public abstract class HadesUtils {
             throw new IllegalArgumentException("daoInterface must not be null!");
         }
 
-        if (!isFactoryBean(bean)) {
+        if (!isHadesDaoBean(bean)) {
             return false;
         }
 
@@ -190,23 +173,37 @@ public abstract class HadesUtils {
     }
 
 
-    /**
-     * Returns all DAO beans.
-     * 
-     * @return
-     */
-    private static Set<IBean> getDaoBeans() {
+    public static Set<IBean> getDaoBeansFor(IProject project) {
+
+        IBeansProject beansProject =
+                BeansCorePlugin.getModel().getProject(project);
+        return beansProject.getBeans(getFactoryName());
+    }
+
+
+    public static Set<IBean> getDaoBeansFor(IProject project, IType type) {
 
         Set<IBean> result = new HashSet<IBean>();
 
-        for (IBeansConfig config : getDaoBeansConfigs()) {
+        for (IBean bean : getDaoBeansFor(project)) {
 
-            for (IBean bean : config.getBeans(getFactoryName())) {
-
+            if (type.getFullyQualifiedName().equals(getDaoInterfaceName(bean))) {
                 result.add(bean);
             }
         }
 
         return result;
+    }
+
+
+    public static boolean hasDaoBeanFor(IProject project, IType type) {
+
+        for (IBean bean : getDaoBeansFor(project)) {
+            if (type.getFullyQualifiedName().equals(getDaoInterfaceName(bean))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

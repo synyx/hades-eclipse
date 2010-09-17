@@ -33,8 +33,8 @@ import org.springframework.ide.eclipse.beans.ui.namespaces.DefaultNamespaceConte
 public class HadesNamespaceContentProvider extends
         DefaultNamespaceContentProvider {
 
-    private static final List<String> FILTER_PROPERTIES =
-            Arrays.asList("daoInterface", "domainClass");
+    private static final List<String> FILTER_PROPERTIES = Arrays.asList(
+            "daoInterface", "domainClass", "customDaoImplementation");
 
 
     /*

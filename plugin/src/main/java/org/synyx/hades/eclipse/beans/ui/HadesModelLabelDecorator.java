@@ -16,8 +16,7 @@
 
 package org.synyx.hades.eclipse.beans.ui;
 
-import java.util.Set;
-
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
@@ -49,17 +48,16 @@ public class HadesModelLabelDecorator extends BeansModelLabelDecorator {
             IDecoration decoration) {
 
         int type = element.getElementType();
+        IProject project = element.getJavaProject().getProject();
 
         try {
-
-            Set<String> daoInterfaces = HadesUtils.getDaoInterfaceNames();
 
             if (type == IJavaElement.CLASS_FILE) {
 
                 // Decorate Java class file
                 IType javaType = ((IClassFile) element).getType();
 
-                if (daoInterfaces.contains(javaType.getFullyQualifiedName())) {
+                if (HadesUtils.hasDaoBeanFor(project, javaType)) {
                     decoration.addOverlay(BeansUIImages.DESC_OVR_SPRING);
                 }
 
@@ -67,8 +65,7 @@ public class HadesModelLabelDecorator extends BeansModelLabelDecorator {
 
                 // Decorate Java source file
                 for (IType javaType : ((ICompilationUnit) element).getTypes()) {
-                    if (daoInterfaces
-                            .contains(javaType.getFullyQualifiedName())) {
+                    if (HadesUtils.hasDaoBeanFor(project, javaType)) {
                         decoration.addOverlay(BeansUIImages.DESC_OVR_SPRING);
                         break;
                     }
