@@ -34,7 +34,7 @@ public class HadesNamespaceContentProvider extends
         DefaultNamespaceContentProvider {
 
     private static final List<String> FILTER_PROPERTIES = Arrays.asList(
-            "daoInterface", "domainClass", "customDaoImplementation");
+            "daoInterface", "domainClass", "transactionManager");
 
 
     /*
