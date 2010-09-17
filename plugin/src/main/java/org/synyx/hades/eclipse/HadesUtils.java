@@ -177,7 +177,8 @@ public abstract class HadesUtils {
 
         IBeansProject beansProject =
                 BeansCorePlugin.getModel().getProject(project);
-        return beansProject.getBeans(getFactoryName());
+        return beansProject == null ? new HashSet<IBean>() : beansProject
+                .getBeans(getFactoryName());
     }
 
 
