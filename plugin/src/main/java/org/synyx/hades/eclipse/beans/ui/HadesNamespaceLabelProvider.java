@@ -1,5 +1,7 @@
 package org.synyx.hades.eclipse.beans.ui;
 
+import static java.lang.String.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,8 +50,7 @@ public class HadesNamespaceLabelProvider extends DefaultNamespaceLabelProvider {
             IBean bean = (IBean) element;
             String daoInterface = HadesUtils.getDaoInterfaceName(bean);
 
-            return new StringBuilder(bean.getElementName()).append(" [")
-                    .append(daoInterface).append("]").toString();
+            return format("%s [%s]", bean.getElementName(), daoInterface);
         }
 
         if (element instanceof IBeansTypedString) {
