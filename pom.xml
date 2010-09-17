@@ -190,12 +190,12 @@
                 </repository>
                 <repository>
                     <id>sts</id>
-                    <url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.6</url>
+                    <url>http://dist.springsource.com/milestone/TOOLS/update/e3.6</url>
                     <layout>p2</layout>
                 </repository>
                 <repository>
                     <id>sts-dependencies</id>
-                    <url>http://dist.springsource.com/snapshot/TOOLS/composite/e3.6</url>
+                    <url>http://dist.springsource.com/milestone/TOOLS/composite/e3.6</url>
                     <layout>p2</layout>
                 </repository>
             </repositories>
