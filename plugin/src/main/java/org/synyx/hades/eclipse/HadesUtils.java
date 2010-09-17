@@ -173,6 +173,12 @@ public abstract class HadesUtils {
     }
 
 
+    /**
+     * Returns all DAO beans for the given {@link IProject project}.
+     * 
+     * @param project
+     * @return
+     */
     public static Set<IBean> getDaoBeansFor(IProject project) {
 
         IBeansProject beansProject =
@@ -182,12 +188,19 @@ public abstract class HadesUtils {
     }
 
 
+    /**
+     * Returns all DAO beans of the fiven {@link IProject project} of the given
+     * interface type.
+     * 
+     * @param project
+     * @param type
+     * @return
+     */
     public static Set<IBean> getDaoBeansFor(IProject project, IType type) {
 
         Set<IBean> result = new HashSet<IBean>();
 
         for (IBean bean : getDaoBeansFor(project)) {
-
             if (type.getFullyQualifiedName().equals(getDaoInterfaceName(bean))) {
                 result.add(bean);
             }
@@ -197,6 +210,14 @@ public abstract class HadesUtils {
     }
 
 
+    /**
+     * Returns whether the given project contains a DAO bean for the given
+     * interface type.
+     * 
+     * @param project
+     * @param type
+     * @return
+     */
     public static boolean hasDaoBeanFor(IProject project, IType type) {
 
         for (IBean bean : getDaoBeansFor(project)) {
