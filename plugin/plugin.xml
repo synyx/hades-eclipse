@@ -40,8 +40,8 @@
             location="TOP_RIGHT"
             label="%decorator.label"
             state="true"
-            class="org.synyx.hades.eclipse.beans.ui.HadesModelLabelDecorator"
-            id="org.synyx.hades.eclipse.beans.ui.hadesModelLabelDecorator">
+            class="org.synyx.hades.eclipse.beans.ui.model.HadesModelLabelDecorator"
+            id="org.synyx.hades.eclipse.beans.ui.model.hadesModelLabelDecorator">
          <description>
             %decorator.description
          </description>

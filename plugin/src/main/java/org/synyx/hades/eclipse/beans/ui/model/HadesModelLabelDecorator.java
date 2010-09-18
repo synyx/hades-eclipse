@@ -14,7 +14,7 @@
  * the License.
  */
 
-package org.synyx.hades.eclipse.beans.ui;
+package org.synyx.hades.eclipse.beans.ui.model;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jdt.core.IClassFile;
