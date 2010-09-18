@@ -78,5 +78,16 @@
 	            </enablement> 
 	   	</navigatorContent>
    </extension>
+   
+   <extension point="org.springframework.ide.eclipse.beans.core.metadata.metadataproviders">
+        <metadataProvider class="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataProvider" />
+    </extension>
+    
+    <extension point="org.springframework.ide.eclipse.beans.ui.metadataproviders">
+         <metadataProviders
+               contentProvider="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataContentProvider"
+               labelProvider="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataLabelProvider">
+         </metadataProviders>
+    </extension>
 
 </plugin>
