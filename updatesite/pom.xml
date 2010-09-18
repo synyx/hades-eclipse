@@ -1,13 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>org.synyx.hades.eclipse.updatesite</artifactId>
 	<packaging>eclipse-update-site</packaging>
-    
-    <name>Hades Eclipse Updatesite</name>
-    <description>Hades Eclipse updatesite projects</description>
+
+	<name>Hades Eclipse Updatesite</name>
+	<description>Hades Eclipse updatesite projects</description>
 
 	<parent>
 		<artifactId>org.synyx.hades.eclipse.parent</artifactId>
@@ -15,7 +14,7 @@
 		<version>0.7.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-    
+
 
 	<dependencies>
 		<dependency>
@@ -23,23 +22,47 @@
 			<artifactId>org.synyx.hades.eclipse.feature</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-        
-        <!-- Additional non PDE bundles to be delivered with the feature 
-             
-             Necessary as we want to stay compatible with older versions 
-             of STS that do not ship with the Spring version Hades requires -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>org.springframework.orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>org.springframework.context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
+
+		<!-- Additional non PDE bundles to be delivered with the feature Necessary 
+			as we want to stay compatible with older versions of STS that do not ship 
+			with the Spring version Hades requires -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>wagon-maven-plugin</artifactId>
+				<version>1.0-beta-3</version>
+				<executions>
+					<execution>
+						<id>upload-site</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>upload</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<fromDir>${project.build.directory}/site</fromDir>
+					<serverId>static.synyx.org</serverId>
+					<url>scp://static.synyx.org/home/public</url>
+					<toDir>public_html/updatesite/${deploy.path}/e${eclipse.version}</toDir>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

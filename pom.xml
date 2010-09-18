@@ -46,6 +46,7 @@
 		<spring.version>3.0.4.RELEASE</spring.version>
         <slf4j.version>1.6.1</slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <deploy.path>dev</deploy.path>
 	</properties>
     	
 	<prerequisites>
@@ -59,6 +60,13 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.wagon</groupId>
+		        <artifactId>wagon-ssh</artifactId>
+		        <version>1.0-beta-6</version>
+		        <extensions>true</extensions>
 			</plugin>
 
 			<plugin>
@@ -136,7 +144,6 @@
 	</dependencies>
 
 	<repositories>
-		       
         <repository>
             <id>com.springsource.repository.bundles.release</id>
             <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Release Bundles</name>
@@ -155,10 +162,28 @@
             </snapshots>
         </repository>
 	</repositories>
+
+	<distributionManagement>
+        <site>
+            <id>static.synyx.org</id>
+            <url>scp://static.synyx.org/home/public/public_html/hades/eclipse/site</url>
+        </site>
+        <repository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+		<snapshotRepository>
+			<id>sonatype</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+    </distributionManagement>
     
     <profiles>
         <profile>
             <id>galileo</id>
+            <properties>
+            	<eclipse.version>3.5</eclipse.version>
+            </properties>
             <repositories>
                 <repository>
                     <id>galileo</id>
@@ -182,6 +207,9 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+            	<eclipse.version>3.6</eclipse.version>
+            </properties>
             <repositories>
                 <repository>
                     <id>helios</id>
@@ -199,6 +227,18 @@
                     <layout>p2</layout>
                 </repository>
             </repositories>
+        </profile>
+        <profile>
+        	<id>release</id>
+        	<activation>
+        		<property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+        	</activation>
+        	<properties>
+        		<deploy.path>release</deploy.path>
+        	</properties>
         </profile>
     </profiles>
 </project>
