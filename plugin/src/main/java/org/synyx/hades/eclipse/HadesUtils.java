@@ -228,4 +228,18 @@ public abstract class HadesUtils {
 
         return false;
     }
+
+
+    /**
+     * Returns a one line {@link String} of the given bean in the format of
+     * {@code $ beanId} [${daoInterface}]}.
+     * 
+     * @param bean
+     * @return
+     */
+    public static String asText(IBean bean) {
+
+        return String.format("%s [%s]", bean.getElementName(),
+                getDaoInterfaceName(bean));
+    }
 }
