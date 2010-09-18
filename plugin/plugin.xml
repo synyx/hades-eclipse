@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   
-	
-
-
-	<extension point="org.springframework.ide.eclipse.beans.ui.namespaces">
+  	<extension point="org.springframework.ide.eclipse.beans.ui.namespaces">
 	  <namespace
          contentProvider="org.synyx.hades.eclipse.beans.ui.HadesNamespaceContentProvider"
          defaultSchemaLocation="http://schemas.synyx.org/hades/hades.xsd"
@@ -19,6 +15,9 @@
       <schemaLocation
             url="http://schemas.synyx.org/hades/hades-1.5.xsd">
       </schemaLocation>
+      <schemaLocation
+            url="http://schemas.synyx.org/hades/hades.xsd">
+      </schemaLocation>
    </namespace>
 	</extension>
 
@@ -27,7 +26,6 @@
 	 <namespace
         contentAssistProcessor="org.synyx.hades.eclipse.beans.ui.editor.HadesContentAssistProcessor"
         elementLocator="org.synyx.hades.eclipse.beans.ui.editor.HadesReferenceableElementLocator"
-        labelProvider="org.synyx.hades.eclipse.HadesOutlineLabelProvider"
         name="Hades Config"
         uri="http://schemas.synyx.org/hades"/>
 	</extension>
@@ -55,6 +53,7 @@
          </enablement>
       </decorator>
    </extension>
+ 
  <extension
          point="org.eclipse.ui.navigator.viewer">
       <viewer viewerId="org.eclipse.ui.navigator.ProjectExplorer"/>
