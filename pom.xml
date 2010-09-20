@@ -8,7 +8,7 @@
 	<version>0.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
     
-    <name>Hades Eclipse Plugin</name>
+    <name>Hades Eclipse</name>
     <description>Hades extension for Spring IDE</description>
     <url>http://hades.synyx.org</url>
 	<inceptionYear>2010</inceptionYear>
@@ -54,6 +54,7 @@
     </prerequisites>
 	
 	<build>
+		<directory>target/e${eclipse.version}</directory>
 		<plugins>
 			<plugin>
 				<groupId>org.sonatype.tycho</groupId>
