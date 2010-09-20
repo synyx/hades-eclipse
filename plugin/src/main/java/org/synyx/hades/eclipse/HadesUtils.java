@@ -239,7 +239,10 @@ public abstract class HadesUtils {
      */
     public static String asText(IBean bean) {
 
-        return String.format("%s [%s]", bean.getElementName(),
-                getDaoInterfaceName(bean));
+        String typeName =
+                isHadesDaoBean(bean) ? getDaoInterfaceName(bean) : bean
+                        .getClassName();
+
+        return String.format("%s [%s]", bean.getElementName(), typeName);
     }
 }
