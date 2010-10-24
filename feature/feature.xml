@@ -2,7 +2,7 @@
 <feature
       id="org.synyx.hades.eclipse.feature"
       label="Hades Namespace Support"
-      version="0.7.0.qualifier"
+      version="0.8.0.qualifier"
       provider-name="Synyx GmbH &amp; Co. KG">
 
    <description>
@@ -60,7 +60,7 @@
          id="org.synyx.hades.eclipse"
          download-size="0"
          install-size="0"
-         version="0.7.0.qualifier"
+         version="0.8.0.qualifier"
          unpack="false"/>
 
    <plugin
