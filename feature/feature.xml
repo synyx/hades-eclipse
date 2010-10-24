@@ -81,63 +81,63 @@
          id="org.synyx.hades"
          download-size="0"
          install-size="0"
-         version="2.0.0.RC3"
+         version="2.0.0.RELEASE"
          unpack="false"/>
 
    <plugin
          id="org.springframework.orm"
          download-size="0"
          install-size="0"
-         version="3.0.4.RELEASE"
+         version="3.0.5.RELEASE"
          unpack="false"/>
 
    <plugin
 	 id="org.springframework.jdbc"
 	 download-size="0"
 	 install-size="0"
-	 version="3.0.4.RELEASE"
+	 version="3.0.5.RELEASE"
 	 unpack="false"/>
 
    <plugin
          id="org.springframework.transaction"
          download-size="0"
          install-size="0"
-         version="3.0.4.RELEASE"
+         version="3.0.5.RELEASE"
          unpack="false"/>
 
    <plugin
          id="org.springframework.beans"
          download-size="0"
          install-size="0"
-         version="3.0.4.RELEASE"
+         version="3.0.5.RELEASE"
          unpack="false"/>
 
    <plugin
          id="org.springframework.context"
          download-size="0"
          install-size="0"
-         version="3.0.4.RELEASE"
+         version="3.0.5.RELEASE"
          unpack="false"/>
 
    <plugin
 	id="org.springframework.core"
 	download-size="0"
 	install-size="0"
-	version="3.0.4.RELEASE"
+	version="3.0.5.RELEASE"
 	unpack="false"/>
 
    <plugin 
 	id="org.springframework.aop"
 	download-size="0"
 	install-size="0"
-	version="3.0.4.RELEASE"
+	version="3.0.5.RELEASE"
 	unpack="false"/>
 
    <plugin
 	id="org.springframework.asm"
 	download-size="0"
 	install-size="0"
-	version="3.0.4.RELEASE"
+	version="3.0.5.RELEASE"
 	unpack="false"/>
 
    <plugin
