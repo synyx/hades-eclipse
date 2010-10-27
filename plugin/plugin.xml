@@ -84,8 +84,9 @@
     
     <extension point="org.springframework.ide.eclipse.beans.ui.metadataproviders">
          <metadataProviders
-               contentProvider="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataContentProvider"
-               labelProvider="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataLabelProvider">
+               contentProvider="org.synyx.hades.eclipse.beans.ui.HadesNamespaceContentProvider"
+               labelProvider="org.synyx.hades.eclipse.metadata.ui.HadesBeanMetadataLabelProvider"
+               priority="100">
          </metadataProviders>
     </extension>
 

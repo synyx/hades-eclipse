@@ -88,7 +88,7 @@ public class HadesBeanMetadata implements IBeanMetadata {
      * org.springframework.ide.eclipse.beans.core.metadata.model.IBeanMetadata
      * #getValue()
      */
-    public Object getValue() {
+    public IBean getValue() {
 
         return bean;
     }
@@ -140,18 +140,5 @@ public class HadesBeanMetadata implements IBeanMetadata {
 
         return ObjectUtils.nullSafeHashCode(bean)
                 + ObjectUtils.nullSafeHashCode(location);
-    }
-
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-
-        // TODO: move into label provider
-        return getValueAsText();
     }
 }

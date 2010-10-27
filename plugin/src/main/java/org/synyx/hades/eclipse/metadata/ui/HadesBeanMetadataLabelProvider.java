@@ -8,9 +8,8 @@ import org.springframework.ide.eclipse.beans.ui.model.metadata.IBeanMetadataLabe
 
 /**
  * Custom {@link IBeanMetadataLabelProvider label provider} to create labels for
- * {@link HadesBeanMetadata}. Currently not active.
+ * {@link HadesBeanMetadata}.
  * 
- * @see https://jira.springframework.org/browse/IDE-1141
  * @author Oliver Gierke
  */
 public class HadesBeanMetadataLabelProvider extends LabelProvider implements
@@ -24,7 +23,7 @@ public class HadesBeanMetadataLabelProvider extends LabelProvider implements
     @Override
     public Image getImage(Object arg0) {
 
-        return BeansUIImages.getImage(BeansUIImages.IMG_OBJS_NAMESPACE_BEAN);
+        return BeansUIImages.getImage(BeansUIImages.IMG_OBJS_BEAN);
     }
 
 
@@ -36,7 +35,8 @@ public class HadesBeanMetadataLabelProvider extends LabelProvider implements
     @Override
     public String getText(Object arg0) {
 
-        return "Hades repositories";
+        HadesBeanMetadata metadata = (HadesBeanMetadata) arg0;
+        return metadata.getValueAsText();
     }
 
 
